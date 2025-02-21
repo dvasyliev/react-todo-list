@@ -1,19 +1,21 @@
 import styles from "./TodoForm.module.css";
 
-export function TodoForm() {
+export function TodoForm({ onCreate }) {
   function handleSubmit(event) {
     event.preventDefault();
 
     const { elements } = event.target;
     if (elements.name.value === "") return;
 
-    console.log({
+    onCreate({
       name: elements.name.value,
       description: elements.description.value,
       deadline: elements.deadline.value,
       priority: elements.priority.value,
       completed: false,
     });
+
+    event.target.reset();
   }
 
   return (
