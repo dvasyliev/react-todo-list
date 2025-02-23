@@ -16,6 +16,7 @@ export function TodoFormFields({
           placeholder="Name*"
           autoComplete="off"
           defaultValue={todo.name}
+          aria-invalid={!!errors.name}
           {...register("name", {
             required: "Name is required",
             minLength: {
@@ -28,7 +29,9 @@ export function TodoFormFields({
             },
           })}
         />
-        {!!errors.name && errors.name.message}
+        {!!errors.name && (
+          <span className={styles.FormFieldError}>{errors.name.message}</span>
+        )}
       </div>
 
       {showAllFields && (
@@ -39,6 +42,7 @@ export function TodoFormFields({
               placeholder="Description"
               rows="3"
               defaultValue={todo.description}
+              aria-invalid={!!errors.description}
               {...register("description", {
                 maxLength: {
                   value: 200,
@@ -47,7 +51,11 @@ export function TodoFormFields({
                 },
               })}
             />
-            {!!errors.description && errors.description.message}
+            {!!errors.description && (
+              <span className={styles.FormFieldError}>
+                {errors.description.message}
+              </span>
+            )}
           </div>
 
           <div className={styles.FormGroup}>
@@ -57,6 +65,7 @@ export function TodoFormFields({
                 type="date"
                 id="deadline"
                 defaultValue={todo.deadline}
+                aria-invalid={!!errors.deadline}
                 {...register("deadline", {
                   min: !todo.id && {
                     value: new Date().toISOString().split("T")[0],
@@ -64,7 +73,11 @@ export function TodoFormFields({
                   },
                 })}
               />
-              {!!errors.deadline && errors.deadline.message}
+              {!!errors.deadline && (
+                <span className={styles.FormFieldError}>
+                  {errors.deadline.message}
+                </span>
+              )}
             </div>
 
             <div className={styles.FormField}>
@@ -72,6 +85,7 @@ export function TodoFormFields({
               <select
                 defaultValue={todo.priority ?? PRIORITY_DEFAULT}
                 id="priority"
+                aria-invalid={!!errors.priority}
                 {...register("priority", {
                   validate: (value) =>
                     Object.keys(PRIORITIES).includes(value) ||
@@ -84,7 +98,11 @@ export function TodoFormFields({
                   </option>
                 ))}
               </select>
-              {!!errors.priority && errors.priority.message}
+              {!!errors.priority && (
+                <span className={styles.FormFieldError}>
+                  {errors.priority.message}
+                </span>
+              )}
             </div>
           </div>
         </>
