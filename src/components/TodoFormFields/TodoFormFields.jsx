@@ -51,12 +51,6 @@ export function TodoFormFields({
                 defaultValue={todo.deadline}
                 aria-invalid={!!errors.deadline}
                 {...register("deadline")}
-                // {...register("deadline", {
-                //   min: !todo.id && {
-                //     value: new Date().toISOString().split("T")[0],
-                //     message: "Deadline can't be date in past",
-                //   },
-                // })}
               />
               {!!errors.deadline && (
                 <span className={styles.FormFieldError}>
