@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { PRIORITY_DEFAULT } from "../../constants/priorities";
 import { TodoFormFields } from "../TodoFormFields/TodoFormFields";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { getTodoSchema } from "../../schemas/todo";
 import styles from "./TodoForm.module.css";
 
 export function TodoForm({ onCreate }) {
@@ -12,6 +14,7 @@ export function TodoForm({ onCreate }) {
     reset,
     formState: { errors },
   } = useForm({
+    resolver: yupResolver(getTodoSchema()),
     defaultValues: {
       description: "",
       deadline: "",
