@@ -1,24 +1,16 @@
 import { useEffect, useState } from "react";
 import { TodoForm } from "./components/TodoForm/TodoForm";
 import { TodoList } from "./components/TodoList/TodoList";
-import styles from "./App.module.css";
 import { TodoFilters } from "./components/TodoFilters/TodoFilters";
+import styles from "./App.module.css";
+import { api } from "./api";
 
 function App() {
   const [todos, setTodos] = useState([]);
   const [filters, setFilters] = useState({});
 
   function fetchTodos() {
-    const searchParams = new URLSearchParams(filters).toString();
-    fetch(`${import.meta.env.VITE_MOCKAPI_BASE_URL}todos?${searchParams}`, {
-      method: "GET",
-      headers: { "content-type": "application/json" },
-    })
-      .then((response) => {
-        if (response.ok) return response.json();
-        if (response.status === 404) return [];
-      })
-      .then(setTodos);
+    api.todos.getAll(filters).then(setTodos);
   }
 
   useEffect(() => {
@@ -26,31 +18,15 @@ function App() {
   }, [filters]);
 
   function handleCreate(newTodo) {
-    fetch(`${import.meta.env.VITE_MOCKAPI_BASE_URL}todos`, {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(newTodo),
-    })
-      .then((response) => !!response.ok && response.json())
-      .then(fetchTodos);
+    api.todos.create(newTodo).then(fetchTodos);
   }
 
   function handleUpdate(id, newTodo) {
-    fetch(`${import.meta.env.VITE_MOCKAPI_BASE_URL}todos/${id}`, {
-      method: "PUT",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(newTodo),
-    })
-      .then((response) => !!response.ok && response.json())
-      .then(fetchTodos);
+    api.todos.update(id, newTodo).then(fetchTodos);
   }
 
   function handleDelete(id) {
-    fetch(`${import.meta.env.VITE_MOCKAPI_BASE_URL}todos/${id}`, {
-      method: "DELETE",
-    })
-      .then((response) => !!response.ok && response.json())
-      .then(fetchTodos);
+    api.todos.delete(id).then(fetchTodos);
   }
 
   return (
