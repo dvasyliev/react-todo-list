@@ -22,20 +22,31 @@ function App() {
   }, []);
 
   function handleCreate(newTodo) {
-    setTodos((prevTodos) => [
-      ...prevTodos,
-      { id: `${prevTodos.length + 1}`, ...newTodo },
-    ]);
+    fetch(`${import.meta.env.VITE_MOCKAPI_BASE_URL}/todos`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(newTodo),
+    })
+      .then((response) => !!response.ok && response.json())
+      .then(fetchTodos);
   }
 
   function handleUpdate(id, newTodo) {
-    setTodos((prevTodos) =>
-      prevTodos.map((todo) => (todo.id === id ? newTodo : todo))
-    );
+    fetch(`${import.meta.env.VITE_MOCKAPI_BASE_URL}/todos/${id}`, {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(newTodo),
+    })
+      .then((response) => !!response.ok && response.json())
+      .then(fetchTodos);
   }
 
   function handleDelete(id) {
-    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+    fetch(`${import.meta.env.VITE_MOCKAPI_BASE_URL}/todos/${id}`, {
+      method: "DELETE",
+    })
+      .then((response) => !!response.ok && response.json())
+      .then(fetchTodos);
   }
 
   function filterTodos(todo) {
