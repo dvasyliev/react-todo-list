@@ -1,20 +1,27 @@
-About me ◽️ 👨🏻‍💻 Front-End Engineer (9+ years) ◽️ 🎬 React.js Instructor on Udemy ◽️ 🎯 Mentor for Developers
-
-My courses
-
-◽️ [React.js AI Chatbot App with ChatGPT, Gemini AI and DeepSeek](https://www.udemy.com/course/reactjs-ai-chatbot-built-with-chatgpt-and-gemini-ai/?referralCode=C70BB647069AB126D136)
-
-◽️ [React Crash Course: From Zero to Hero](https://www.udemy.com/course/react-crash-course-from-zero-to-hero/?referralCode=FFEE417046C196879B4F&couponCode=CPSALEBRAND24)
+About me ◽️ 🎬 Udemy Instructor ◽️ 👨🏻‍💻 Front-End Engineer (10+ years) ◽️ 🎯 Mentor for Developers
 
 # Todo List App
 
-This repository contains the source code for Todo List App for the "React Crash Course: From Zero to Hero" course.
+This repository contains the Source Code for the "Todo List App" from 🧑🏻‍💻 [React Crash Course: From Zero to Hero](https://linkly.link/1zdiJ) course.
 
-## "React Crash Course: From Zero to Hero" course
+# My Other Courses
 
-Learn React from scratch and build your first application step by step in this course.
+#### Front-End Courses
 
-In this course, you’ll start with setting up a development environment, creating your first application in React and finishing up by managing component states! With this course, you will gain foundational knowledge of how to create React components, share data between components, style React components and much more.
+🧑🏻‍💻 [React Crash Course: From Zero to Hero](https://linkly.link/1zdiJ)\
+🤖 [React.js AI Chatbot App with ChatGPT, Gemini AI and DeepSeek](https://linkly.link/2DUBq)
+
+#### AI & Vibe Coding Courses
+
+😈 [GitHub Copilot for Beginners: AI Coding Crash Course](https://linkly.link/2B4WN)\
+👻 [Cursor AI for Beginners: AI Coding Crash Course](https://linkly.link/2CKBT)\
+🏄🏻‍♂️ [Windsurf for Beginners: AI Coding Crash Course ](https://linkly.link/2DUC9)\
+❤️ [Lovable AI: Complete Guide for Vibe Coding](https://linkly.link/2DUC1)
+
+#### Full-Stack Courses
+
+👓 [Next.js Crash Course: Build a Full-Stack App in a Weekend](https://linkly.link/2EUQ5)\
+🧩 [Node.js Crash Course: Build a REST API in a Weekend](https://linkly.link/2EUQ6)
 
 # How to use code examples from Github
 
